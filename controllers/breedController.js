@@ -1,3 +1,7 @@
+const fetch = require("node-fetch");
+const SearchedBreed = require("../models/searchedBreed.js");
+const { body, validationResult } = require("express-validator");
+
 exports.names = (req, res, next) => {
   fetch("https://api.thecatapi.com/v1/breeds", {
     headers: {
@@ -17,7 +21,7 @@ exports.names = (req, res, next) => {
 };
 
 exports.show = (req, res, next) => {
-  fetch(`https://api.thecatapi.com/v1/breeds?q=${req.params.id}`, {
+  fetch(`https://api.thecatapi.com/v1/breeds/search?q=${req.params.id}`, {
     headers: {
       "x-api-key": process.env.CAT_API_KEY,
     },
@@ -52,3 +56,42 @@ exports.show = (req, res, next) => {
 };
 
 exports.top = (req, res, next) => {};
+
+exports.top_post = [
+  body("term").trim().isLength({ min: 1 }).escape(),
+  (req, res, next) => {
+    fetch(`https://api.thecatapi.com/v1/breeds/search?q=${req.body.term}`, {
+      headers: {
+        "x-api-key": process.env.CAT_API_KEY,
+      },
+    })
+      .then((response) => {
+        response
+          .json()
+          .then((data) => {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+              return res.send(errors);
+            } else {
+              console.log(data.length);
+              if (data.length) {
+                const searchedBreed = new SearchedBreed({
+                  name: req.body.term,
+                });
+
+                searchedBreed.save((err) => {
+                  if (err) {
+                    return next(err);
+                  }
+                  res.send({ url: searchedBreed.url });
+                });
+              } else {
+                res.send({ error: "It's not a breed" });
+              }
+            }
+          })
+          .catch((err) => next(err));
+      })
+      .catch((err) => next(err));
+  },
+];

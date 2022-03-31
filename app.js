@@ -3,9 +3,17 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var breedRouter = require("./routes/breed");
+
+mongoose.connect(process.env.MONGODB, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "mongo connection error"));
 
 var app = express();
 
