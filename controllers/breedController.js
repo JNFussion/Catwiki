@@ -129,3 +129,24 @@ exports.top_post = [
       .catch((err) => next(err));
   },
 ];
+
+exports.extra_photos = (req, res, next) => {
+  fetch(
+    `https://api.thecatapi.com/v1/images/search?limit=8&breed_id=${req.params.id}`,
+    {
+      headers: {
+        "x-api-key": process.env.CAT_API_KEY,
+      },
+    }
+  )
+    .then((response) => {
+      response
+        .json()
+        .then((data) => {
+          const urls = data.map((breed) => breed.url);
+          res.send(urls);
+        })
+        .catch((err) => next(err));
+    })
+    .catch((err) => next(err));
+};

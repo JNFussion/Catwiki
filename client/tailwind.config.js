@@ -14,9 +14,14 @@ module.exports = {
         hero: "#E3E1DC",
         "brown-text": "#291507",
         "brown-square": "#4D270C",
+        "point-empty": "#E0E0E0",
+        "point-filled": "#544439",
       },
       fontFamily: {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+      },
+      gridTemplateColumns: {
+        auto: "repeat(auto-fill, minmax(224px, 1fr))",
       },
     },
   },

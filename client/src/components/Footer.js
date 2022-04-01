@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/images/CatwikiLogo.svg";
+import Logo from "../assets/images/CatwikiLogoWhite.svg";
 
 function Footer() {
   return (
