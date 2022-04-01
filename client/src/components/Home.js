@@ -5,9 +5,11 @@ import Logo from "../assets/images/CatwikiLogoWhite.svg";
 import Catimg from "../assets/images/image 1.png";
 import Catimg2 from "../assets/images/image 2.png";
 import Catimg3 from "../assets/images/image 3.png";
+import BreedTile from "./BreedTile";
 
 function Home() {
   const [names, setNames] = useState([]);
+  const [searchedBreedsNames, setSearchedBreedsNames] = useState([]);
   const [term, setTerm] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -36,7 +38,9 @@ function Home() {
     fetch("/breeds/names").then((response) => {
       response.json().then((data) => setNames(data));
     });
-
+    fetch("/breeds/top").then((response) => {
+      response.json().then((data) => setSearchedBreedsNames(data));
+    });
     return () => {};
   }, []);
 
@@ -85,7 +89,7 @@ function Home() {
           </p>
         </header>
         <div>
-          <div className="flex justify-end">
+          <div className="flex justify-end my-14">
             <Link
               to="/breeds/top"
               className="ml-auto flex gap-2 items-center opacity-60 hover:opacity-100"
@@ -96,7 +100,12 @@ function Home() {
               </span>
             </Link>
           </div>
-          <div>CATS</div>
+          <div className="flex justify-evenly">
+            {searchedBreedsNames.map((breed) => (
+              // eslint-disable-next-line no-underscore-dangle
+              <BreedTile breedName={breed._id} />
+            ))}
+          </div>
         </div>
       </section>
       <section className="flex gap-11 p-24">
