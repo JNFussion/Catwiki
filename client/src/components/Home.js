@@ -45,13 +45,13 @@ function Home() {
   }, []);
 
   return (
-    <article className="max-w-[1440px] mx-auto">
-      <section className="h-[600px] py-32 px-20 rounded-t-xl bg-hero-sm md:bg-hero-md lg:bg-hero-lg bg-cover">
+    <article className="max-w-[1440px] xl:mx-auto mx-4">
+      <section className="h-[600px] py-16 px-8  xl:py-32 xl:px-20 rounded-t-xl bg-hero-sm md:bg-hero-md lg:bg-hero-lg bg-cover">
         <header className="max-w-sm">
           <h1>
-            <img src={Logo} alt="logo" className="h-[88px]" />
+            <img src={Logo} alt="logo" className="xl:h-[88px] h-[44px]" />
           </h1>
-          <p className="text-2xl text-white">
+          <p className="xl:text-2xl text-white">
             Get to know more about your cat breed
           </p>
         </header>
@@ -65,7 +65,7 @@ function Home() {
               required
               value={term}
               onChange={(e) => setTerm(e.target.value)}
-              className="flex-1 py-1 border-b border-solid text-lg  focus:border-b-slate-900 focus:outline-none"
+              className="w-full flex-1 py-1 border-b border-solid text-lg  focus:border-b-slate-900 focus:outline-none"
             />
             <datalist id="breeds-names">
               {names.map((name) => (
@@ -79,12 +79,14 @@ function Home() {
           <p className="px-10 py-2 text-red-600">{error}</p>
         </form>
       </section>
-      <section className="px-28 py-20 rounded-b-xl bg-hero">
+      <section className="xl:px-28 xl:py-20 px-14 py-10 rounded-b-xl bg-hero">
         <header>
           <div>
-            <h2 className="text-xl has-square">Most Searched Breeds</h2>
+            <h2 className="xl:text-xl text-xs has-square">
+              Most Searched Breeds
+            </h2>
           </div>
-          <p className="text-5xl my-11 font-bold">
+          <p className="xl:text-5xl text-lg text-center my-11 font-bold">
             66+ Breeds For you to discover
           </p>
         </header>
@@ -100,7 +102,7 @@ function Home() {
               </span>
             </Link>
           </div>
-          <div className="flex justify-evenly">
+          <div className="flex flex-wrap justify-evenly">
             {searchedBreedsNames.map((breed) => (
               // eslint-disable-next-line no-underscore-dangle
               <BreedTile breedName={breed._id} />
@@ -108,7 +110,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="flex gap-11 p-24">
+      <section className="md:flex gap-11 xl:p-24 py-16">
         <header className="flex-1">
           <h2 className="relative font-bold text-5xl has-square has-square-top">
             Why should you have a cat?

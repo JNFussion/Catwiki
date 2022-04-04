@@ -17,7 +17,7 @@ function BreedTile({ breedName }) {
   if (breed) {
     return (
       <article>
-        <div className="relative w-56 h-56 overflow-hidden rounded-3xl">
+        <div className="relative md:w-56 md:h-56 w-32 h-32 overflow-hidden rounded-3xl">
           <Link to={`/breed/${breed.name}`}>
             <img
               src={breed.image}
