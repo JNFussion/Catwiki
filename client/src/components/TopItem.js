@@ -16,9 +16,9 @@ function TopItem({ breedName, index }) {
 
   if (breed) {
     return (
-      <article className="my-14 flex flex-wrap gap-12">
+      <article className="my-14 md:flex gap-12">
         <section>
-          <div className="relative w-44 h-44 overflow-hidden rounded-3xl">
+          <div className="relative w-44 h-44 mx-auto overflow-hidden rounded-3xl">
             <Link to={`/breed/${breed.name}`}>
               <img
                 src={breed.image}
