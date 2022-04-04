@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.27809055.css",
-    "main.js": "/static/js/main.d3765656.js",
+    "main.js": "/static/js/main.31063bc9.js",
     "static/media/HeroImagelg.png": "/static/media/HeroImagelg.b8e8da0106a66d0639ce.png",
     "static/media/HeroImagemd.png": "/static/media/HeroImagemd.c5e665e1f33e3c00d361.png",
     "static/media/image 3.png": "/static/media/image 3.084e290fd2d3180fd127.png",
@@ -12,10 +12,10 @@
     "static/media/CatwikiLogoWhite.svg": "/static/media/CatwikiLogoWhite.d5d868f38d50372f18835c427ccf5d8a.svg",
     "index.html": "/index.html",
     "main.27809055.css.map": "/static/css/main.27809055.css.map",
-    "main.d3765656.js.map": "/static/js/main.d3765656.js.map"
+    "main.31063bc9.js.map": "/static/js/main.31063bc9.js.map"
   },
   "entrypoints": [
     "static/css/main.27809055.css",
-    "static/js/main.d3765656.js"
+    "static/js/main.31063bc9.js"
   ]
 }
