@@ -21,7 +21,7 @@ module.exports = {
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
-        auto: "repeat(auto-fill, minmax(224px, 1fr))",
+        auto: "repeat(auto-fill, minmax(256px, 1fr))",
       },
     },
   },

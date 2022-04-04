@@ -14,8 +14,10 @@ function Top() {
   }, []);
 
   return (
-    <article className="max-w-[1440px] mx-auto px-24">
-      <h2 className="text-4xl font-bold">Top 10 most searched breeds</h2>
+    <article className="max-w-[1440px] mx-auto md:px-24 px-12">
+      <h2 className="md:text-4xl text-2xl font-bold">
+        Top 10 most searched breeds
+      </h2>
       <div className="my-14">
         {top.map((breed, index) => (
           <TopItem breedName={breed._id} index={index + 1} />

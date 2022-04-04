@@ -8,7 +8,7 @@ function Points({ points }) {
       {Array.from(new Array(5)).map((val, index) => {
         return (
           <div
-            className={`w-14 h-3 rounded-lg ${
+            className={`md:w-14 w-10 h-3 rounded-lg ${
               points > index ? "bg-point-filled" : "bg-point-empty"
             }`}
           />
